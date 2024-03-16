@@ -56,8 +56,10 @@ def darkshop():
         return render_template('darkshop.html', session = session)
     else:
         return render_template('403.html')
-        
-        
+
+@app.route("/admin")
+def admin():
+    return render_template('admin.html')
 
 @app.route("/login")
 def auth():

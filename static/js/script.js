@@ -48,6 +48,28 @@ $(document).ready(function () {
 		}
 	})
 
+	$('#rega_btn').on('click',function(){
+		if(validation()){
+			$.ajax({
+			  method: "POST",
+			  url: "/ajax/registration",
+			  contentType: "application/json",
+			  dataType: 'json',
+			  data: JSON.stringify({
+			  	login: $('#login').val(),
+			  	paswd: $('#paswd').val(),
+			  	name: $('#name').val(),
+			  	surname: $('#surname').val(),
+			  	phone: $('#phone').val(),
+			  	mail: $('#mail').val(),
+			  }),
+			})
+			.done(function(result) {
+			    window.location.href = '/login';
+			});
+		}
+	})
+
 	$('#login_btn').on('click',function(){
 		if(validation()){
 			$.ajax({
